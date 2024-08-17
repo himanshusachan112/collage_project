@@ -56,8 +56,8 @@ const Signuppage = () => {
   }, [reset, isSubmitSuccessful]);
 
   return (
-    <div className='bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen flex items-center justify-center'>
-      <div className='bg-gray-700 rounded-lg shadow-lg w-full max-w-4xl flex overflow-hidden'>
+    <div className='bg-gradient-to-r from-gray-900 via-gray-800 to-black min-h-screen flex items-center justify-center'>
+      <div className='bg-gray-700 rounded-lg shadow-lg w-full max-w-4xl flex overflow-hidden my-20'>
         <div className='w-full lg:w-1/2 p-8 lg:p-12'>
           <h2 className='text-4xl text-white font-bold mb-6'>
             Welcome to the College Intern & Placement Portal
