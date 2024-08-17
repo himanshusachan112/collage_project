@@ -5,170 +5,167 @@ import Custombutton from '../components/Custombutton'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
-import {setuserdata} from "../slices/Authslice"
+import { setuserdata } from "../slices/Authslice"
 import { sendotp } from '../services/Authservices'
-import { FaRegEye } from "react-icons/fa6";
-import { IoEyeOffSharp } from "react-icons/io5";
-
-
+import { FaRegEye } from "react-icons/fa"
+import { IoEyeOffSharp } from "react-icons/io5"
+import loginimage from "../assets/loginimage.avif"
 
 const Signuppage = () => {
-  const navigate=useNavigate();
-  const dispatch=useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
     handleSubmit,
     reset,
-    formState:{errors,isSubmitSuccessful},
-    getValues,
-    setValue}=useForm()
-  const [tab,settab]=useState("Student");
-  const [showpassword,setshowpassword]=useState(false);
-  const [showconfirmpassword,setshowconfirmpassword]=useState(false);
-
+    formState: { errors, isSubmitSuccessful },
+    setValue
+  } = useForm();
   
+  const [tab, setTab] = useState("Student");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const signuppagehandler=async (data)=>{
-    console.log("form data is =>",data);
-    if(data.password!==data.confirmpassword){
-      return toast.error("Incorrect Confirm Password")
+  const signuppagehandler = async (data) => {
+    console.log("form data is =>", data);
+    if (data.password !== data.confirmpassword) {
+      return toast.error("Passwords do not match.")
     }
     dispatch(setuserdata(data));
-    dispatch(sendotp(data.email,navigate))
+    dispatch(sendotp(data.email, navigate))
   }
 
-  useEffect(()=>{
-      register("accounttype",{
-        required:{value:true}
-      })
-      setValue("accounttype","Student");
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+  useEffect(() => {
+    register("accounttype", {
+      required: { value: true }
+    });
+    setValue("accounttype", "Student");
+  }, [register, setValue]);
 
-
-  useEffect(()=>{
-    if(isSubmitSuccessful){
+  useEffect(() => {
+    if (isSubmitSuccessful) {
       reset({
-        email:"",
-        firstname:"",
-        lastname:"",
-        password:"",
-        confirmpassword:"",
+        email: "",
+        firstname: "",
+        lastname: "",
+        password: "",
+        confirmpassword: "",
       })
     }
-  },[reset,isSubmitSuccessful])
-
-    
-  
-
+  }, [reset, isSubmitSuccessful]);
 
   return (
-    <div className='bg-black min-h-screen'>
-      <div className='w-[50%] p-6 tracking-normal '>
-        <div className='text-white font-bold font-serif text-3xl '>
-        Join the millions learning to code with StudyNotion for free
-        </div>
-        <div className='text-gray-500 text-lg'>Build skills for today, tomorrow, and beyond  <span className='text-blue-500 italic'>Education to future-proof your career.</span></div>
-        <div className=' flex gap-5 mt-2 bg-slate-700 p-0.5 text-lg w-fit rounded-full  text-slate-200 '>
-          <span className={`p-2 cursor-pointer rounded-full ${tab==="Student" ? "bg-black":"" }`} 
-            onClick={()=>{setValue("accounttype","Student");
-                          settab("Student")
-            }}>{variables.student}
-          </span>
-          <span className={`p-2 cursor-pointer rounded-full ${tab==="Alumni" ? "bg-black":"" }`}
-           onClick={()=>{setValue("accounttype","Alumni");
-                         settab("Alumni")
-           }}>{variables.alumni}
-           </span>
-        </div>  
-        <form onSubmit={handleSubmit(signuppagehandler)}>
-          <div className='lg:flex flex-row gap-10'>
-            <span>
-              <label className='text-gray-500' htmlFor='firstname'>FirstName<sup className="text-red-500">*</sup></label><br/>
-              <input
-              type='text'
-              placeholder='Enter FirstName' 
-              name='firstname' 
-              id='firstname'
-              {...register("firstname",{
-                required:{value:true,message:"Enter First Name"},
-
-              })}
-              />
-              {errors.firstname && <span className='text-red-800'>{errors.firstname.message}</span>}<br/>
+    <div className='bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen flex items-center justify-center'>
+      <div className='bg-gray-700 rounded-lg shadow-lg w-full max-w-4xl flex overflow-hidden'>
+        <div className='w-full lg:w-1/2 p-8 lg:p-12'>
+          <h2 className='text-4xl text-white font-bold mb-6'>
+            Welcome to the College Intern & Placement Portal
+          </h2>
+          <p className='text-gray-300 mb-6'>
+            Sign up to stay updated on the latest internship opportunities and placement news. <span className='text-blue-400'>Empowering your career with every update.</span>
+          </p>
+          <div className='flex gap-4 mb-6 bg-gray-600 p-1 rounded-full'>
+            <span
+              className={`p-3 cursor-pointer rounded-full flex-1 text-center font-medium transition-colors duration-300 ${tab === "Student" ? "bg-blue-500 text-white" : "text-gray-300 hover:bg-gray-500"}`}
+              onClick={() => { setValue("accounttype", "Student"); setTab("Student") }}
+            >
+              {variables.student}
             </span>
-            <span>
-              <label className='text-gray-500' htmlFor='lastname'>LastName<sup className="text-red-500">*</sup></label><br/>
-              <input 
-              type='text'
-              placeholder='Enter LastName' 
-              name='lastname' 
-              id='lastname'
-              {...register("lastname",{
-                required:{value:true,message:"Enter Last Name"}
-              })}
-              />
-              {errors.lastname && <span className='text-red-800'>{errors.lastname.message}</span>}
+            <span
+              className={`p-3 cursor-pointer rounded-full flex-1 text-center font-medium transition-colors duration-300 ${tab === "Alumni" ? "bg-blue-500 text-white" : "text-gray-300 hover:bg-gray-500"}`}
+              onClick={() => { setValue("accounttype", "Alumni"); setTab("Alumni") }}
+            >
+              {variables.alumni}
             </span>
           </div>
-          <div>
-            <label className='text-gray-500' htmlFor='email'>Email Address<sup className="text-red-500">*</sup></label><br/>
-            <input 
-            type='email'
-            placeholder='Enter Email Address'
-            id='email'
-            name='email'
-            {...register("email",{
-              required:{value:true,message:"Enter Email Address"}
-            })}
-            />
-            {errors.email && <span className='text-red-800'>{errors.email.message}</span>}
-          </div>
-          <div  className=' lg:flex flex-row gap-10 '>
-            <div>
-              <label className='text-gray-500' htmlFor='password'>Password<sup className="text-red-500">*</sup></label><br/>
-              <input 
-                type={`${showpassword?"text":"password"}`}
-                placeholder='Password'
-                id='password'
-                name='password'
-                {...register("password",{
-                  required:{value:true,message:"Enter Password"}
-                })}
-              />
-              <span className='text-white' onClick={()=>setshowpassword(!showpassword)}>{showpassword? <FaRegEye/> : <IoEyeOffSharp/>} </span>
-
-              <br/>
-              {errors.password && <span className='text-red-800'>{errors.password.message}</span>}<br/>
-            </div>
-            <div>
-              <label className='text-gray-500' htmlFor='confirmpassword'>confirm Password<sup className="text-red-500">*</sup></label><br/>
-                <input 
-                  type={`${showconfirmpassword?'text':'password'}`}
-                  placeholder='Password'
-                  id='confirmpassword'
-                  name='confirmpassword'
-                  {...register("confirmpassword",{
-                    required:{value:true,message:"Enter Password"}
+          <form onSubmit={handleSubmit(signuppagehandler)} className='space-y-6'>
+            <div className='lg:flex gap-6'>
+              <div className='flex-1'>
+                <label className='text-gray-400' htmlFor='firstname'>First Name<sup className="text-red-400">*</sup></label>
+                <input
+                  className='w-full mt-1 p-3 bg-gray-800 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400'
+                  type='text'
+                  placeholder='Enter First Name'
+                  name='firstname'
+                  id='firstname'
+                  {...register("firstname", {
+                    required: { value: true, message: "Enter First Name" },
                   })}
                 />
-                <span className='text-white' onClick={()=>setshowconfirmpassword(!showconfirmpassword)}>{showconfirmpassword? <FaRegEye/> : <IoEyeOffSharp/>} </span>
-
-                <br/>
-                {errors.confirmpassword && <span className='text-red-800'>{errors.confirmpassword.message}</span>}<br/>
+                {errors.firstname && <span className='text-red-400'>{errors.firstname.message}</span>}
+              </div>
+              <div className='flex-1'>
+                <label className='text-gray-400' htmlFor='lastname'>Last Name<sup className="text-red-400">*</sup></label>
+                <input
+                  className='w-full mt-1 p-3 bg-gray-800 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400'
+                  type='text'
+                  placeholder='Enter Last Name'
+                  name='lastname'
+                  id='lastname'
+                  {...register("lastname", {
+                    required: { value: true, message: "Enter Last Name" }
+                  })}
+                />
+                {errors.lastname && <span className='text-red-400'>{errors.lastname.message}</span>}
+              </div>
             </div>
-          </div>
-          
-          <Custombutton  text={"Create Account"} styles={"bg-yellow-300 text-black w-[200px]"}/>
-
-
-
-
-        </form>
-      </div>
-      <div className='w-[50%]'>
-        
+            <div>
+              <label className='text-gray-400' htmlFor='email'>Email Address<sup className="text-red-400">*</sup></label>
+              <input
+                className='w-full mt-1 p-3 bg-gray-800 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400'
+                type='email'
+                placeholder='Enter Email Address'
+                id='email'
+                name='email'
+                {...register("email", {
+                  required: { value: true, message: "Enter Email Address" }
+                })}
+              />
+              {errors.email && <span className='text-red-400'>{errors.email.message}</span>}
+            </div>
+            <div className='lg:flex gap-6'>
+              <div className='flex-1 relative'>
+                <label className='text-gray-400' htmlFor='password'>Password<sup className="text-red-400">*</sup></label>
+                <input
+                  className='w-full mt-1 p-3 bg-gray-800 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400'
+                  type={showPassword ? "text" : "password"}
+                  placeholder='Password'
+                  id='password'
+                  name='password'
+                  {...register("password", {
+                    required: { value: true, message: "Enter Password" }
+                  })}
+                />
+                <span className='absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer text-gray-400' onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? <FaRegEye /> : <IoEyeOffSharp />}
+                </span>
+                {errors.password && <span className='text-red-400'>{errors.password.message}</span>}
+              </div>
+              <div className='flex-1 relative'>
+                <label className='text-gray-400' htmlFor='confirmpassword'>Confirm Password<sup className="text-red-400">*</sup></label>
+                <input
+                  className='w-full mt-1 p-3 bg-gray-800 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400'
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  placeholder='Confirm Password'
+                  id='confirmpassword'
+                  name='confirmpassword'
+                  {...register("confirmpassword", {
+                    required: { value: true, message: "Enter Confirm Password" }
+                  })}
+                />
+                <span className='absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer text-gray-400' onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
+                  {showConfirmPassword ? <FaRegEye /> : <IoEyeOffSharp />}
+                </span>
+                {errors.confirmpassword && <span className='text-red-400'>{errors.confirmpassword.message}</span>}
+              </div>
+            </div>
+            <Custombutton text={"Sign Up"} styles={"bg-blue-500 text-white w-full py-3 rounded-md hover:bg-blue-600 transition-colors duration-300"} />
+          </form>
+        </div>
+        <div className='lg:flex lg:w-1/2'>
+          <img src={loginimage} alt="Sign Up" className='object-cover h-full w-full' />
+        </div>
       </div>
     </div>
   )
