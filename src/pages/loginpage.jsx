@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 const Loginpage = () => {
+  console.log("hello")
   const navigate=useNavigate()
   const dispatch=useDispatch();
 

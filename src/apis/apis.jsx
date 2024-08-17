@@ -1,6 +1,6 @@
 import { FaBackward } from "react-icons/fa"
 
-const BASE_URL=process.env.REACT_APP_BASE_URL
+const BASE_URL=import.meta.env.VITE_APP_BASE_URL
 
 export const authroutes={
     SENDOTP_API:BASE_URL+"/auth/sendotp",

@@ -10,12 +10,7 @@ const {databaseConnect}=require("./config/ConnectToDatabase");
 const {cloudinaryConnect}=require("./config/ConnectToCloudinary");
 
 //importing all the routes
-const authroutes=require("./routes/auth");
-const userroutes=require("./routes/user");
-const categoryroutes=require("./routes/category");
-const courseroutes=require("./routes/course");
-const paymentroutes=require("./routes/Payment");
-const contactUsRoute = require("./routes/Contact");
+
 
 
 
@@ -23,8 +18,8 @@ const contactUsRoute = require("./routes/Contact");
 app.use(express.json())
 app.use(cookieparser());
 app.use(cors({
-    origin:"https://edupulses.netlify.app",
-    // origin:"http://localhost:3000",
+    // origin:"https://edupulses.netlify.app",
+    origin:"http://localhost:5173",
     credentials:true,
 }))
 app.use(fileupload({
@@ -38,12 +33,6 @@ databaseConnect();
 cloudinaryConnect();
 
 //defining the routes
-app.use("/api/v1/auth",authroutes);
-app.use("/api/v1/user",userroutes);
-app.use("/api/v1/category",categoryroutes);
-app.use("/api/v1/course",courseroutes);
-app.use("/api/v1/payment",paymentroutes);
-app.use("/api/v1/reach", contactUsRoute);
 
 
 
