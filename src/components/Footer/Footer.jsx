@@ -82,7 +82,7 @@ function Footer() {
             <img width="100px" alt="Company Logo" />
           </div>
           <p className="text-sm text-gray-400">
-            &copy; 2023 DevUI. All Rights Reserved.
+            &copy; 2024 brand. All Rights Reserved.
           </p>
         </div>
       </div>
