@@ -1,4 +1,4 @@
-const  { Job } =require("../models/jobs.models") ;
+const   Job  =require("../models/jobs.models") ;
 
 require("dotenv").config()
 //updating user profile
