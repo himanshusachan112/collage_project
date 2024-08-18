@@ -7,11 +7,16 @@ import store from './store/store.js'
 import './index.css';
 import Loginpage from './pages/loginpage.jsx'
 import Signuppage from './pages/signuppage.jsx'
+import HomePage from './pages/homepage.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
     element:<App/>,
     children:[
+      {
+        path:"/",
+        element:<HomePage/>
+      },
       {
         path:"/login",
         element:<Loginpage/>
