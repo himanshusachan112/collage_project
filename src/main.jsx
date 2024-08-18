@@ -14,6 +14,8 @@ import Forgotpassword from "./pages/Forgotpassword.jsx";
 import Verifyotp from "./pages/Verifyotp.jsx";
 import Updatepassword from "./pages/Updatepassword.jsx";
 import Contact from "./pages/contact.jsx";
+import Jobs from "./pages/Jobs.jsx";
+import Hackathons from "./pages/Hackathons.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
         path: "/about-us",
         element: <About />,
       },
+      {
+        path:"/jobs",
+        element:<Jobs/>
+      },
+      {
+        path:"/hackathons",
+        element:<Hackathons/>
+      }
     ],
   },
 ]);

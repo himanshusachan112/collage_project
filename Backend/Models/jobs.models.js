@@ -39,8 +39,12 @@ const jobSchema = new Schema({
     status:{
         type:Boolean,
         required:true,
+    },
+    url:{
+        type:String,
+        required:true
     }
 
 })
 
-export const Intern = mongoose.model("Intern",jobSchema);
+export const Job = mongoose.model("Job",jobSchema);
