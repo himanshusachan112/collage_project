@@ -10,8 +10,11 @@ const {databaseConnect}=require("./config/ConnectToDatabase");
 const {cloudinaryConnect}=require("./config/ConnectToCloudinary");
 
 //importing all the routes
-const authroutes=require("./routes/auth");
-const userroutes=require("./routes/user");
+const authroutes=require("./routes/auth.js");
+const userroutes=require("./routes/user.js");
+const internroutes = require("./routes/interns.js");
+const jobroutes = require("./routes/jobs.js");
+const hackathonroutes = require("./routes/hackathon.js")
 
 
 
@@ -36,7 +39,9 @@ cloudinaryConnect();
 //defining the routes
 app.use("/api/v1/auth",authroutes);
 app.use("/api/v1/user",userroutes);
-
+app.use("/api/v1/intern",internroutes);
+app.use("/api/v1/job",jobroutes);
+app.use("/api/v1/hackathon",hackathonroutes);
 
 
 

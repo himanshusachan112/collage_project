@@ -28,7 +28,11 @@ const hackathonSchema = new Schema({
         type:String,
         enum:["active","ongoing","finished"],
         required:true,
+    },
+    url:{
+        type:String,
+        required:true
     }
 })
 
-export const Hackathon = mongoose.model("hackathon",hackathonSchema)
+export const Hackathon = mongoose.model("Hackathon",hackathonSchema)

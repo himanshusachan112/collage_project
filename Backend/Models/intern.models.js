@@ -42,6 +42,10 @@ const internSchema = new Schema({
     status:{
         type:Boolean,
         required:true,
+    },
+    url:{
+        type:String,
+        required:true
     }
 
 })
