@@ -1,4 +1,4 @@
-import { Intern } from "../models/intern.models.js";
+import {inter}
 
 require("dotenv").config()
 //updating user profile
