@@ -32,7 +32,17 @@ const internSchema = new Schema({
         {
             type:Number
         }
-    ]
+    ],
+    deletedAt:{
+        type:Date,
+    },
+    deadline:{
+        type:String
+    },
+    status:{
+        type:Boolean,
+        required:true,
+    }
 
 })
 
