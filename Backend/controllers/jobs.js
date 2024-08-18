@@ -1,5 +1,4 @@
-import { join } from "lodash";
-import { Job } from "../models/jobs.models";
+const   Job  =require("../models/jobs.models") ;
 
 require("dotenv").config()
 //updating user profile
@@ -67,7 +66,7 @@ const getJob = async(req,res)=>{
     }
 }
 
-export {
+module.exports= {
     createJob,
     deleteJob,
     getJob

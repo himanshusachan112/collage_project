@@ -1,7 +1,7 @@
 const express=require("express");
 const router=express.Router();
 
-import { createIntern , deleteIntern, getIntern} from '../controllers/intern.js'
+const  { createIntern , deleteIntern, getIntern} =require('../controllers/intern.js') 
 
 
 

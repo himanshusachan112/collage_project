@@ -1,4 +1,5 @@
-import mongoose, {Schema} from 'mongoose'
+const  {Schema} =require('mongoose') 
+const mongoose=require("mongoose")
 
 const hackathonSchema = new Schema({
     name:{
@@ -35,4 +36,4 @@ const hackathonSchema = new Schema({
     }
 })
 
-export const Hackathon = mongoose.model("Hackathon",hackathonSchema)
+module.exports= mongoose.model("Hackathon",hackathonSchema)

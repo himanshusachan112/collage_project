@@ -1,5 +1,5 @@
-import mongoose, {Schema} from 'mongoose'
-
+const   {Schema}=require("mongoose") 
+const mongoose=require("mongoose")
 const internSchema = new Schema({
     role:{
         type:String,
@@ -50,4 +50,4 @@ const internSchema = new Schema({
 
 })
 
-export const Intern = mongoose.model("Intern",internSchema);
+module.exports= mongoose.model("Intern",internSchema);
