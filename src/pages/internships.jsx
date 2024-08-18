@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { internroutes } from '../apis/apis';
+import { apiConnector } from '../utils/Apiconnecter';
+
 
 const InternshipCard = ({ internship }) => (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-4">
@@ -30,6 +32,7 @@ const InternshipCard = ({ internship }) => (
 );
 
 const InternshipsPage = () => {
+    console.log("1234567")
     const [internships, setInternships] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -39,12 +42,14 @@ const InternshipsPage = () => {
     const [batchFilter, setBatchFilter] = useState('');
     const [companyFilter, setCompanyFilter] = useState('');
     const [roleFilter, setRoleFilter] = useState('');
-
+    
     useEffect(() => {
         const fetchInternships = async () => {
             try {
-                const response = await axios.get(internroutes.GET_INTERNSHIP_API);
-                setInternships(response.data);
+                console.log(internroutes.GET_INTERNSHIP_API)
+                const response = await apiConnector("GET",internroutes.GET_INTERNSHIP_API);
+                console.log(response.data);
+                setInternships(response.data.data);
             } catch (err) {
                 setError('Failed to load internships.');
                 console.error('Error fetching internships:', err);
@@ -52,12 +57,13 @@ const InternshipsPage = () => {
                 setLoading(false);
             }
         };
-
         fetchInternships();
     }, []);
+    
+    
 
     // Filter and search logic
-    const filteredInternships = internships.filter((internship) => {
+    const filteredInternships = internships?.filter((internship) => {
         const matchesSearch = searchQuery
             ? internship.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
               internship.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -74,6 +80,7 @@ const InternshipsPage = () => {
     });
 
     return (
+        
         <div className="container mx-auto p-4">
             <h1 className="text-3xl font-bold mb-6">Internship Opportunities</h1>
 
@@ -113,7 +120,7 @@ const InternshipsPage = () => {
                 <p className="text-gray-500">Loading...</p>
             ) : error ? (
                 <p className="text-red-500">{error}</p>
-            ) : filteredInternships.length === 0 ? (
+            ) : filteredInternships?.length === 0 ? (
                 <p className="text-gray-500">No internships match your criteria.</p>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

@@ -63,7 +63,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/hackathons",
-        element:<Hackathons/>
+        element:<HackathonsPage/>
       }
     ],
   },
