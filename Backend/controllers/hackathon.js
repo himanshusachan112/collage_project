@@ -1,4 +1,4 @@
-const  { Hackathon } =require("../models/hackathon.model") ;
+const   Hackathon  =require("../models/hackathon.model") ;
 
 require("dotenv").config()
 //updating user profile
