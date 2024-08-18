@@ -9,7 +9,7 @@ import About from "./pages/About.jsx";
 import Loginpage from "./pages/loginpage.jsx";
 import Signuppage from "./pages/signuppage.jsx";
 import HomePage from "./pages/homepage.jsx";
-import InternshipPage from "./pages/InternshipPage.jsx";
+import InternshipsPage from "./pages/internships.jsx";
 import Forgotpassword from "./pages/Forgotpassword.jsx";
 import Verifyotp from "./pages/Verifyotp.jsx";
 import Updatepassword from "./pages/Updatepassword.jsx";
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/internships",
-        element: <InternshipPage />,
+        element: <InternshipsPage />,
       },
       {
         path: "/forgotpassword",
