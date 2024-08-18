@@ -1,5 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const HomePage = () => {
   return (
@@ -7,8 +10,8 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="bg-gray-800 text-white py-16">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4">Find Your Dream Job or Internship</h1>
-          <p className="text-lg mb-8">Explore opportunities with top companies and start your career journey today.</p>
+          <h1 className="text-4xl font-bold mb-4">Find Your Dream Job, Internship, or Hackathon</h1>
+          <p className="text-lg mb-8">Explore opportunities with top companies, start your career journey, or participate in exciting hackathons.</p>
           <div className="flex justify-center gap-4">
             <Link
               to="/jobs"
@@ -22,17 +25,40 @@ const HomePage = () => {
             >
               Explore Internships
             </Link>
+            <Link
+              to="/hackathons"
+              className="bg-purple-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors"
+            >
+              Browse Hackathons
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Jobs and Internships */}
+      {/* Featured Jobs */}
       <section className="py-12 bg-gray-100">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8">Featured Opportunities</h2>
-          <div className="flex flex-wrap justify-between">
-            <div className="w-full md:w-1/2 lg:w-1/3 p-4">
-              <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-center mb-8">Featured Jobs</h2>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+          >
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <h3 className="text-xl font-semibold mb-2">Software Engineer</h3>
                 <p className="text-gray-600 mb-4">Company XYZ | Remote</p>
                 <Link
@@ -42,9 +68,72 @@ const HomePage = () => {
                   View Details
                 </Link>
               </div>
-            </div>
-            <div className="w-full md:w-1/2 lg:w-1/3 p-4">
-              <div className="bg-white p-6 rounded-lg shadow-md">
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">Frontend Developer</h3>
+                <p className="text-gray-600 mb-4">Company ABC | San Francisco, CA</p>
+                <Link
+                  to="/jobs/frontend-developer"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">Data Scientist</h3>
+                <p className="text-gray-600 mb-4">Company DEF | Remote</p>
+                <Link
+                  to="/jobs/data-scientist"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">UX Designer</h3>
+                <p className="text-gray-600 mb-4">Company GHI | New York, NY</p>
+                <Link
+                  to="/jobs/ux-designer"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            {/* Add more featured jobs as needed */}
+          </Swiper>
+        </div>
+      </section>
+
+      {/* Featured Internships */}
+      <section className="py-12 bg-gray-100">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Featured Internships</h2>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+          >
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
                 <h3 className="text-xl font-semibold mb-2">Marketing Intern</h3>
                 <p className="text-gray-600 mb-4">Company ABC | New York, NY</p>
                 <Link
@@ -54,9 +143,120 @@ const HomePage = () => {
                   View Details
                 </Link>
               </div>
-            </div>
-            {/* Add more featured opportunities as needed */}
-          </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">Design Intern</h3>
+                <p className="text-gray-600 mb-4">Company XYZ | Remote</p>
+                <Link
+                  to="/internships/design-intern"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">Engineering Intern</h3>
+                <p className="text-gray-600 mb-4">Company DEF | San Francisco, CA</p>
+                <Link
+                  to="/internships/engineering-intern"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">Finance Intern</h3>
+                <p className="text-gray-600 mb-4">Company GHI | Remote</p>
+                <Link
+                  to="/internships/finance-intern"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            {/* Add more featured internships as needed */}
+          </Swiper>
+        </div>
+      </section>
+
+      {/* Featured Hackathons */}
+      <section className="py-12 bg-gray-100">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Featured Hackathons</h2>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={30}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+            }}
+          >
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">Hackathon XYZ</h3>
+                <p className="text-gray-600 mb-4">Location | Date</p>
+                <Link
+                  to="/hackathons/hackathon-xyz"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">Innovate 2024</h3>
+                <p className="text-gray-600 mb-4">Location | Date</p>
+                <Link
+                  to="/hackathons/innovate-2024"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">CodeFest</h3>
+                <p className="text-gray-600 mb-4">Location | Date</p>
+                <Link
+                  to="/hackathons/codefest"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                <h3 className="text-xl font-semibold mb-2">TechSprint</h3>
+                <p className="text-gray-600 mb-4">Location | Date</p>
+                <Link
+                  to="/hackathons/techsprint"
+                  className="text-blue-600 hover:underline"
+                >
+                  View Details
+                </Link>
+              </div>
+            </SwiperSlide>
+            {/* Add more featured hackathons as needed */}
+          </Swiper>
         </div>
       </section>
 
@@ -123,7 +323,7 @@ const HomePage = () => {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
