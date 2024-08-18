@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element:<Verifyotp/>
       },
       {
-        path:"/updatepassword",
+        path:"/updatepassword/:token",
         element:<Updatepassword/>
       }
     ]
