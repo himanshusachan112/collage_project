@@ -3,7 +3,7 @@ import Logo from '../Logo'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-// import LogoutBtn from '../LogoutBtn'
+import LogoutBtn from './LogoutBtn'
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
@@ -11,8 +11,8 @@ function Header() {
 
   const navItems = [
     { name: 'Home', slug: "/", active: true },
-    { name: "Contact Us", slug: "/contact", active: !authStatus },
-    { name: "About Us", slug: "/about", active: !authStatus },
+    { name: "Contact Us", slug: "/contact", active: true },
+    { name: "About Us", slug: "/about", active: true },
     { name: "Login", slug: "/login", active: !authStatus, special: true },
     { name: "Signup", slug: "/signup", active: !authStatus, special: true },
   ]
