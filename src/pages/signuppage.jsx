@@ -29,6 +29,9 @@ const Signuppage = () => {
 
   const signuppagehandler = async (data) => {
     console.log("form data is =>", data);
+    if(tab=="Student"){
+      data.secretkey="11111";
+    }
     if (data.password !== data.confirmpassword) {
       return toast.error("Passwords do not match.")
     }
@@ -159,6 +162,22 @@ const Signuppage = () => {
                 </span>
                 {errors.confirmpassword && <span className='text-red-400'>{errors.confirmpassword.message}</span>}
               </div>
+            </div>
+            <div>
+              {tab!="Student" ? <div>
+                <label className='text-gray-400' htmlFor='email'>Secret Key<sup className="text-red-400">*</sup></label>
+              <input
+                className='w-full mt-1 p-3 bg-gray-800 text-white rounded-md border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400'
+                type='text'
+                placeholder='Enter Secret Key'
+                id='secretkey'
+                name='secretkey'
+                {...register("secretkey", {
+                  required: { value: true, message: "Enter Secret Key" }
+                })}
+              />
+              {errors.secretkey && <span className='text-red-400'>{errors.secretkey.message}</span>}
+              </div> : null}
             </div>
             <Custombutton text={"Sign Up"} styles={"bg-blue-500 text-white w-full py-3 rounded-md hover:bg-blue-600 transition-colors duration-300"} />
           </form>
