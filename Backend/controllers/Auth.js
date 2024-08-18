@@ -254,7 +254,6 @@ exports.forgotpasswordtoken=async (req,res)=>{
             
         })
     }
-
 }
 
 
