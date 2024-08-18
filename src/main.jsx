@@ -12,6 +12,7 @@ import InternshipPage from './pages/InternshipPage.jsx'
 import Forgotpassword from './pages/Forgotpassword.jsx'
 import Verifyotp from './pages/Verifyotp.jsx'
 import Updatepassword from './pages/Updatepassword.jsx'
+import Contact from './pages/contact.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path:"/updatepassword/:token",
         element:<Updatepassword/>
+      },
+      {
+        path:"/contact-us",
+        element:<Contact/>
       }
     ]
 
