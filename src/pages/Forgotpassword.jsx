@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Custombutton from '../components/common/Custombutton';
+import Custombutton from '../components/Custombutton';
 import { FaArrowLeft } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 import { sentforgotpasswordlink } from '../services/Authservices';

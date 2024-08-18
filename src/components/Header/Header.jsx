@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import LogoutBtn from './LogoutBtn'
 
 function Header() {
-  const authStatus = useSelector((state) => state.auth.status)
+  const authStatus = useSelector((state) => state.Auth.token)
   const navigate = useNavigate()
 
   const navItems = [

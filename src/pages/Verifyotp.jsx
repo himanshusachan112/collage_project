@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import OtpInput from 'react-otp-input'
-import Custombutton from '../components/common/Custombutton';
+import Custombutton from '../components/Custombutton';
 import { sendotp, signup } from '../services/Authservices';
 
 
 const Verifyotp = () => {
+    console.log("aay verify otp")
     
     const navigate=useNavigate();
     const dispatch=useDispatch()
@@ -15,7 +16,7 @@ const Verifyotp = () => {
 
     const resendotphandler=(e)=>{
         e.preventDefault();
-        dispatch(sendotp(userdata.email,navigate))
+        dispatch(sendotp(userdata?.email,navigate))
     }
     
     const verifyotphandler=(e)=>{

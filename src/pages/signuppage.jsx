@@ -5,7 +5,7 @@ import Custombutton from '../components/Custombutton'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
-import { setuserdata } from "../slices/Authslice"
+import { setuserdata } from "../store/Authslice"
 import { sendotp } from '../services/Authservices'
 import { FaRegEye } from "react-icons/fa"
 import { IoEyeOffSharp } from "react-icons/io5"

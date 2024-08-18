@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Custombutton from '../components/common/Custombutton'
+import Custombutton from '../components/Custombutton'
 import { FaRegEye } from "react-icons/fa6";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { useDispatch } from 'react-redux';
