@@ -1,8 +1,8 @@
 import {toast} from "react-toastify";
 import { apiConnector } from "../utils/Apiconnecter";
 import { authroutes } from "../apis/apis";
-import { setuserdata,setloading,settoken } from "../slices/Authslice";
-import {setprofile} from "../slices/Profileslice"
+import { setuserdata,setloading,settoken } from "../store/Authslice";
+import {setprofile} from "../store/Profileslice"
 
 
 
@@ -51,7 +51,7 @@ export function signup(
     email,
     password,
     confirmpassword,
-    otp){
+    otp,secretkey){
         console.log("first name in servies",firstname)
         
        return async (dispatch)=>{
@@ -68,7 +68,8 @@ export function signup(
                 password,
                 confirmpassword,
                 accounttype,
-                otp}
+                otp,
+            secretkey}
             )
             console.log("SIGNUPAPI RESPONSE=>",response?.data?.data)
             if(!response.data.success){

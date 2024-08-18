@@ -7,6 +7,11 @@ import store from './store/store.js'
 import './index.css';
 import Loginpage from './pages/loginpage.jsx'
 import Signuppage from './pages/signuppage.jsx'
+import HomePage from './pages/homepage.jsx'
+import InternshipPage from './pages/InternshipPage.jsx'
+import Forgotpassword from './pages/Forgotpassword.jsx'
+import Verifyotp from './pages/Verifyotp.jsx'
+import Updatepassword from './pages/Updatepassword.jsx'
 import Homepage from './pages/homepage.jsx'
 import SearchResultsPage from './pages/searchresult.jsx'
 import Contact from './pages/contact.jsx'
@@ -19,12 +24,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<Homepage/>
-        
-      },
-      {
-        path:"/searchresult",
-        element:<SearchResultsPage/>
+        element:<HomePage/>
       },
       {
         path:"/login",
@@ -33,10 +33,6 @@ const router = createBrowserRouter([
       {
         path:"/signup",
         element:<Signuppage/>
-      },
-      {
-        path:"/contact",
-        element:<Contact/>
       }
     ]
 
