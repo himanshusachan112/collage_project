@@ -12,11 +12,7 @@ import InternshipPage from './pages/InternshipPage.jsx'
 import Forgotpassword from './pages/Forgotpassword.jsx'
 import Verifyotp from './pages/Verifyotp.jsx'
 import Updatepassword from './pages/Updatepassword.jsx'
-import Homepage from './pages/homepage.jsx'
-import SearchResultsPage from './pages/searchresult.jsx'
 import Contact from './pages/contact.jsx'
-import InternshipsPage from './pages/internships.jsx'
-
 const router = createBrowserRouter([
   {
     path:"/",
@@ -29,10 +25,28 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Loginpage/>
-      },
-      {
+      },{
         path:"/signup",
         element:<Signuppage/>
+      },{
+        path:"/internships",
+        element:<InternshipPage/>
+      }
+      ,{
+        path:"/forgotpassword",
+        element:<Forgotpassword/>
+      },
+      {
+        path:"/verify-otp",
+        element:<Verifyotp/>
+      },
+      {
+        path:"/updatepassword",
+        element:<Updatepassword/>
+      },
+      {
+        path:"/contact-us",
+        element:<Contact/>
       }
     ]
 
