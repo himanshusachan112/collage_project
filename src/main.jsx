@@ -8,6 +8,7 @@ import './index.css';
 import Loginpage from './pages/loginpage.jsx'
 import Signuppage from './pages/signuppage.jsx'
 import HomePage from './pages/homepage.jsx'
+import InternshipPage from './pages/InternshipPage.jsx'
 const router = createBrowserRouter([
   {
     path:"/",
@@ -23,6 +24,9 @@ const router = createBrowserRouter([
       },{
         path:"/signup",
         element:<Signuppage/>
+      },{
+        path:"/internships",
+        element:<InternshipPage/>
       }
     ]
 
