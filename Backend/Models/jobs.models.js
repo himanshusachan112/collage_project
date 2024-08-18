@@ -13,16 +13,23 @@ const jobSchema = new Schema({
         type:String,
         required:true,
     },
-    stipend:{
+    ctc:{
         type:String,
-    },
-    tenure:{
-        type:Number,
     },
     eligibility:{
         type:Number,
         required:true, 
-    }
+    },
+    gender:{
+        type:String,
+        enum:["male","female","both"],
+        required:true
+    },
+    batch:[
+        {
+            type:Number
+        }
+    ]
 
 })
 
