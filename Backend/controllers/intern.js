@@ -45,7 +45,7 @@ const deleteIntern = async(req,res)=>{
     } catch (error) {
         return res.json({
             success:false,
-            message:err.message,
+            message:error.message,
         })
     }
 }
@@ -61,7 +61,7 @@ const getIntern = async(req,res)=>{
     } catch (error) {
         return res.json({
             success:false,
-            message:err.message,
+            message:error.message,
         })
     }
 }
