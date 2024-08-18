@@ -1,0 +1,119 @@
+/* App.css */
+
+/* General Styles */
+.App {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+#pageTitle p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Columns */
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+/* Team Card Styles */
+.teamCard {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  max-width: 320px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.teamCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.teamImage {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid #0073e6;
+  transition: border-color 0.3s;
+}
+
+.teamCard:hover .teamImage {
+  border-color: #005bb5;
+}
+
+.teamContent {
+  margin-top: 10px;
+}
+
+#teamTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #0073e6;
+}
+
+#teamPos {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+#teamDetails {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+/* Social Media Section */
+.socialMedia {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.socialMedia a {
+  font-size: 1.8rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.socialMedia a:hover {
+  color: #0073e6;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .columns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
