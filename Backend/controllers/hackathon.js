@@ -1,4 +1,4 @@
-import { Hackathon } from "../models/hackathon.model";
+const  { Hackathon } =require("../models/hackathon.model") ;
 
 require("dotenv").config()
 //updating user profile
@@ -64,7 +64,7 @@ const getHackathon = async(req,res)=>{
         })
     }
 }
-export {
+module.exports= {
     createHackathon,
     deleteHackathon,
     getHackathon

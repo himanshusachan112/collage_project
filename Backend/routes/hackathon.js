@@ -1,7 +1,7 @@
 const express=require("express");
 const router=express.Router();
 
-import { createHackathon , deleteHackathon, getHackathon} from '../controllers/hackathon.js'
+const  { createHackathon , deleteHackathon, getHackathon} =require('../controllers/hackathon.js') 
 
 
 

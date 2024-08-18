@@ -1,7 +1,7 @@
 const express=require("express");
 const router=express.Router();
 
-import { createJob , deleteJob, getJob} from '../controllers/jobs.js'
+const  { createJob , deleteJob, getJob} =require('../controllers/jobs.js') 
 
 
 
