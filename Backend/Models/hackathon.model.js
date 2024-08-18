@@ -17,7 +17,18 @@ const hackathonSchema = new Schema({
         {
             type:Number
         }
-    ]
+    ],
+    deletedAt:{
+        type:Date,
+    },
+    deadline:{
+        type:String
+    },
+    status:{
+        type:String,
+        enum:["active","ongoing","finished"],
+        required:true,
+    }
 })
 
 export const Hackathon = mongoose.model("hackathon",hackathonSchema)
