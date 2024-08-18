@@ -22,7 +22,17 @@ const internSchema = new Schema({
     eligibility:{
         type:Number,
         required:true, 
-    }
+    },
+    gender:{
+        type:String,
+        enum:["male","female","both"],
+        required:true
+    },
+    batch:[
+        {
+            type:Number
+        }
+    ]
 
 })
 
