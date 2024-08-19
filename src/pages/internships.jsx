@@ -7,17 +7,17 @@ import { apiConnector } from '../utils/Apiconnecter';
 
 const InternshipCard = ({ internship }) => (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-4">
-        <div className="p-4">
+        <div className="p-4 flex-col justify-center items-center text-center">
             <h2 className="text-xl font-bold mb-2">{internship.role}</h2>
             <p className="text-gray-700 mb-2">{internship.company}</p>
             <p className="text-gray-800 mb-4">{internship.status}</p>
             <p className="text-gray-600 text-sm mb-4">{internship.stipend}</p>
             <p className="text-gray-800 mb-4">{internship.description}</p>
             <p className='text-gray-900 mb-6'>{internship.tenure}</p>
-            <p className='text-gray-900 mb-6'>{internship.batch}</p>
-            <p className='text-gray-900 mb-6'>{internship.gender}</p>
+            <p className='text-gray-900 mb-6'>For batch:{internship.batch}</p>
+            <p className='text-gray-900 mb-6 content-center'>{internship.gender}</p>
             <p className='text-gray-900 mb-6'>{internship.deadline}</p>
-            <p className='text-gray-900 mb-6'>{internship.deletedAt}</p>
+            {/* <p className='text-gray-900 mb-6'>{internship.deletedAt}</p> */}
             
             <a
                 href={internship.url}
