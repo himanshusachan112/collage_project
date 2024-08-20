@@ -237,7 +237,7 @@ exports.forgotpasswordtoken=async (req,res)=>{
         forgotpasswordlink:token,
         forgotpasswordlinkexpires:Date.now()+5*60*1000,
     })
-    const link=`http://localhost:5173/updatepassword/${token}`
+    const link=`https://career-sync-nita.vercel.app/updatepassword/${token}`
     const mailresposne=await mailsender(email,"Forgot Password Email",forgotpasswordtemplate(email,link));
 
     res.json({
