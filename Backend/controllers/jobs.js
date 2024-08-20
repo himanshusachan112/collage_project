@@ -8,7 +8,7 @@ const createJob=async (req,res)=>{
             const{role,company,description,ctc,eligibility,gender,batch,deletedAt,deadline,status,url }=req.body;
 
             const job=await Job.create({
-                role,company,description,ctc,tenure,eligibility,gender,batch,deletedAt,deadline,status,url
+                role,company,description,ctc,eligibility,gender,batch,deletedAt,deadline,status,url
             })
             const data = await Job.find()
             
