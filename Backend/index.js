@@ -23,7 +23,9 @@ app.use(express.json())
 app.use(cookieparser());
 app.use(cors({
     // origin:"https://edupulses.netlify.app",
-    origin:"http://localhost:5173",
+    // origin:"http://localhost:5173",
+    origin:"https://career-sync-nita.vercel.app",
+    
     credentials:true,
 }))
 app.use(fileupload({
