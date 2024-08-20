@@ -117,7 +117,7 @@ export function login(email,password,navigate){
             localStorage.setItem("token",JSON.stringify(response.data.token));
             localStorage.setItem("profile",JSON.stringify(response.data.data));
             toast.success("Login Successfull");
-            navigate("/dashboard/my-profile");
+            navigate("/");
 
         }
         catch(err){

@@ -22,7 +22,7 @@ function Header() {
       <div className='container mx-auto flex items-center justify-between py-4 px-6'>
         <Link to='/' className='flex items-center'>
           <Logo width='70px' />
-          <span className='ml-3 text-2xl font-bold'>YourBrand</span> {/* Optional Brand Name */}
+          <span className='ml-3 text-2xl font-bold'>CareerSync</span> {/* Optional Brand Name */}
         </Link>
         <nav className='flex items-center space-x-6'>
           <ul className='flex space-x-6'>
