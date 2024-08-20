@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { internroutes } from '../apis/apis';
 import { apiConnector } from '../utils/Apiconnecter';
+import { useParams } from 'react-router-dom';
 
 
 const InternshipCard = ({ internship }) => (
@@ -32,7 +33,6 @@ const InternshipCard = ({ internship }) => (
 );
 
 const InternshipsPage = () => {
-    console.log("1234567")
     const [internships, setInternships] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -42,8 +42,13 @@ const InternshipsPage = () => {
     const [batchFilter, setBatchFilter] = useState('');
     const [companyFilter, setCompanyFilter] = useState('');
     const [roleFilter, setRoleFilter] = useState('');
+
+    const {role} = useParams();
     
     useEffect(() => {
+        if(role !=="all"){
+            setRoleFilter(role);
+        }
         const fetchInternships = async () => {
             try {
                 console.log(internroutes.GET_INTERNSHIP_API)

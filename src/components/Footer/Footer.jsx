@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Logo from '../Logo'
 
 function Footer() {
   return (
@@ -79,10 +80,11 @@ function Footer() {
         </div>
         <div className="mt-12 flex flex-col items-center">
           <div className="mb-4">
-            <img width="100px" alt="Company Logo" />
+            <Logo width="100px"  alt="Company Logo"/>
+            
           </div>
           <p className="text-sm text-gray-400">
-            &copy; 2024 brand. All Rights Reserved.
+            &copy; 2024 CareerSync. All Rights Reserved.
           </p>
         </div>
       </div>

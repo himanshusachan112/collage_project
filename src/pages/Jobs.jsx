@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { jobroutes } from '../apis/apis';
 import { apiConnector } from '../utils/Apiconnecter';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 
 const JobCard = ({ job }) => (
@@ -42,8 +44,12 @@ const JobsPage = () => {
     const [batchFilter, setBatchFilter] = useState('');
     const [companyFilter, setCompanyFilter] = useState('');
     const [roleFilter, setRoleFilter] = useState('');
+    const {role} = useParams();
     
     useEffect(() => {
+        if(role !=="all"){
+            setRoleFilter(role);
+        }
         const fetchJobs = async () => {
             try {
                 console.log(jobroutes.GET_JOB_API)

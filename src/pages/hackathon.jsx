@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { hackathonroutes } from '../apis/apis';
+import { useParams } from 'react-router-dom';
 
 const HackathonCard = ({ hackathon }) => (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-6">
@@ -36,13 +37,18 @@ const HackathonsPage = () => {
     const [batchFilter, setBatchFilter] = useState('');
     const [companyFilter, setCompanyFilter] = useState('');
     const [statusFilter, setStatusFilter] = useState('');
+    const {name} = useParams();
+    
 
     useEffect(() => {
+        if (name !== "all") {
+            setSearchQuery(name);
+        }
         const fetchHackathons = async () => {
             try {
                 const response = await axios.get({hackathonroutes});
-                console
-                setHackathons(response.data);
+                console.log(response.data.data)
+                setHackathons(response.data.data);
             } catch (err) {
                 setError('Failed to load hackathons.');
                 console.error('Error fetching hackathons:', err);
@@ -55,7 +61,7 @@ const HackathonsPage = () => {
     }, []);
 
     // Filter and search logic
-    const filteredHackathons = hackathons.filter((hackathon) => {
+    const filteredHackathons = hackathons?.filter((hackathon) => {
         const matchesSearch = searchQuery
             ? hackathon.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
               hackathon.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -111,11 +117,11 @@ const HackathonsPage = () => {
                 <p className="text-gray-500 text-center">Loading...</p>
             ) : error ? (
                 <p className="text-red-500 text-center">{error}</p>
-            ) : filteredHackathons.length === 0 ? (
+            ) : filteredHackathons?.length === 0 ? (
                 <p className="text-gray-500 text-center">No hackathons match your criteria.</p>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    {filteredHackathons.map((hackathon) => (
+                    {filteredHackathons?.map((hackathon) => (
                         <HackathonCard key={hackathon._id} hackathon={hackathon} />
                     ))}
                 </div>

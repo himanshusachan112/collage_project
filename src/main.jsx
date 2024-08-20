@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <Signuppage />,
       },
       {
-        path: "/internships",
+        path: "/internships/:role",
         element: <InternshipsPage />,
       },
       {
@@ -58,11 +58,11 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path:"/jobs",
+        path:"/jobs/:role",
         element:<Jobs/>
       },
       {
-        path:"/hackathons",
+        path:"/hackathons/:name",
         element:<HackathonsPage/>
       }
     ],
